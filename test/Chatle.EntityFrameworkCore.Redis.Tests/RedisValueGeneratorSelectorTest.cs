@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
-using Microsoft.EntityFrameworkCore.FunctionalTests;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 

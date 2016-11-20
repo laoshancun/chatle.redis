@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using Microsoft.EntityFrameworkCore.FunctionalTests;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 

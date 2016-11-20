@@ -1,5 +1,6 @@
 {
   "version": "1.1.0-*",
+  "title": "Chatle.EntityFrameworkCore.Redis",
   "description": "Redis data store for Entity Framework (to be used for testing purposes).",
   "dependencies": {
     "Microsoft.EntityFrameworkCore": "1.1.0-*",

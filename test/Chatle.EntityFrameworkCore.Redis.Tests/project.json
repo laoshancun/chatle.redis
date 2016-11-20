@@ -3,7 +3,7 @@
     "warningsAsErrors": true
   },
   "dependencies": {
-    "Microsoft.EntityFrameworkCore.Tests": {
+    "Chatle.EntityFrameworkCore.Redis": {
       "target": "project"
     },
     "Moq": "4.6.38-*"

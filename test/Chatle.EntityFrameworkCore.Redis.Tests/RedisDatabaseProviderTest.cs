@@ -5,7 +5,6 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using Microsoft.EntityFrameworkCore.FunctionalTests;
 using Xunit;
 
 namespace Chatle.EntityFrameworkCore.Redis.Tests
