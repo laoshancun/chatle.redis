@@ -301,7 +301,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Internal
             }
         }
 
-        private sealed class RelatedEntitiesLoader : IRelatedEntitiesLoader
+        private sealed class RelatedEntitiesLoader : IRelatedEntitiesLoader, IAsyncRelatedEntitiesLoader
         {
             private readonly IEntityType _targetType;
             private readonly Func<IEntityType, ValueBuffer, object> _materializer;
@@ -320,12 +320,19 @@ namespace Microsoft.EntityFrameworkCore.Query.Internal
                                 new ValueBuffer(vs), vb => _materializer(_targetType, vb)))
                     .Where(eli => keyComparer.ShouldInclude(eli.ValueBuffer));
 
-                foreach(var r in result)
-                {
-                    yield return r;
-                }
+                return result;
             }
-                
+
+            IAsyncEnumerable<EntityLoadInfo> IAsyncRelatedEntitiesLoader.Load(QueryContext queryContext, IIncludeKeyComparer keyComparer)
+            {
+                var result = ((RedisQueryContext)queryContext).Store
+                    .GetResultsAsyncEnumerable(new RedisQuery(_targetType))
+                    .Select(vs => new EntityLoadInfo(
+                                new ValueBuffer(vs), vb => _materializer(_targetType, vb)))
+                    .Where(eli => keyComparer.ShouldInclude(eli.ValueBuffer));
+
+                return result;
+            }
 
             public void Dispose()
             {

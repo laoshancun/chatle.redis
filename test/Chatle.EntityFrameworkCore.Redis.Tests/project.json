@@ -3,7 +3,7 @@
     "warningsAsErrors": true
   },
   "dependencies": {
-    "Chatle.EntityFrameworkCore.Redis": "1.1.0-*",
+    "Chatle.EntityFrameworkCore.Redis": "0.1.0-*",
     "Chatle.EntityFrameworkCore.Redis.FunctionalTests": "1.0.0-*",
     "Moq": "4.6.38-*"
   },
