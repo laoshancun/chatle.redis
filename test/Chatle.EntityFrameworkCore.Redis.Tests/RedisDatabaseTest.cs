@@ -14,6 +14,8 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
 using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.FunctionalTests;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chatle.EntityFrameworkCore.Redis.Tests
 {

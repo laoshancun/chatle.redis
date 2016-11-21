@@ -3,9 +3,8 @@
     "warningsAsErrors": true
   },
   "dependencies": {
-    "Chatle.EntityFrameworkCore.Redis": {
-      "target": "project"
-    },
+    "Chatle.EntityFrameworkCore.Redis": "1.1.0-*",
+    "Chatle.EntityFrameworkCore.Redis.FunctionalTests": "1.0.0-*",
     "Moq": "4.6.38-*"
   },
   "testRunner": "xunit",
@@ -13,7 +12,7 @@
     "netcoreapp1.1": {
       "dependencies": {
         "Microsoft.NETCore.App": {
-          "version": "1.1.0",
+          "version": "1.1.0-preview1-001100-00",
           "type": "platform"
         }
       }

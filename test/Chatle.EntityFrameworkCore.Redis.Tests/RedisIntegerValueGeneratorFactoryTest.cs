@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Specification.Tests;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using Xunit;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chatle.EntityFrameworkCore.Redis.Tests
 {

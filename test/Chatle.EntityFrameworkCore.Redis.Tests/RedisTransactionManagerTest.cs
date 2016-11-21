@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Chatle.EntityFrameworkCore.Redis.Properties;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chatle.EntityFrameworkCore.Redis.Tests
 {
