@@ -5,12 +5,13 @@ using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore.Utilities;
+using StackExchange.Redis;
 
 namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
 	public class RedisConnection : IRedisConnection
 	{
-		private readonly string _connectionString;
+		private readonly ConfigurationOptions _options;
 		private readonly int _database = -1;
 
 		/// <summary>
@@ -25,15 +26,16 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 			Check.NotNull(options, "options");
 			var optionsExtension = options.FindExtension<RedisOptionsExtension>();
 
-            HostnPort = $"{optionsExtension.HostName}:{optionsExtension.Port}";
-            _connectionString = $"{HostnPort},connectTimeout={optionsExtension.ConnectTimeout},syncTimeout={optionsExtension.SyncTimeout}";
-			_database = optionsExtension.Database;
-		}
 
-        public virtual string HostnPort { get; private set; }
-        public virtual string ConnectionString
-		{
-			get { return _connectionString; }
+            _database=optionsExtension.ConnectionOptions.DefaultDatabase.Value;
+
+            _options = optionsExtension.ConnectionOptions;
+
+        }
+
+        public virtual ConfigurationOptions ConnectionOptions
+        {
+			get { return _options; }
 		}
 
 		public virtual int Database

@@ -1,8 +1,10 @@
-﻿namespace Microsoft.EntityFrameworkCore.Storage.Internal
+﻿using StackExchange.Redis;
+
+namespace Microsoft.EntityFrameworkCore.Storage.Internal
 {
 	public interface IRedisConnection
 	{
-		string ConnectionString { get; }
+        ConfigurationOptions ConnectionOptions { get; }
 		int Database { get; }
 	}
 }

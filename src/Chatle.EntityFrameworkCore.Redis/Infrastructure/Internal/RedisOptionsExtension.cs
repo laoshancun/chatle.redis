@@ -4,6 +4,7 @@
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore.Utilities;
 using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 
 namespace Microsoft.EntityFrameworkCore.Infrastructure.Internal
 {
@@ -18,11 +19,7 @@ namespace Microsoft.EntityFrameworkCore.Infrastructure.Internal
         public RedisOptionsExtension([NotNull] RedisOptionsExtension copyFrom)
         {
             _ignoreTransactions = copyFrom._ignoreTransactions;
-			HostName = copyFrom.HostName;
-			Port = copyFrom.Port;
-			Database = copyFrom.Database;
-			SyncTimeout = copyFrom.SyncTimeout;
-			ConnectTimeout = copyFrom.ConnectTimeout;
+            ConnectionOptions = copyFrom.ConnectionOptions;
 		}
 
         public virtual bool IgnoreTransactions
@@ -31,11 +28,10 @@ namespace Microsoft.EntityFrameworkCore.Infrastructure.Internal
             set { _ignoreTransactions = value; }
         }
 
-		public virtual string HostName { get; [param: NotNull] set; }
-        public virtual int Port { get; set; }
-        public virtual int Database { get; set; }
-        public virtual int SyncTimeout { get; set; }
-        public virtual int ConnectTimeout { get; set; }
+        /// <summary>
+        /// connection string
+        /// </summary>
+        public virtual ConfigurationOptions ConnectionOptions { get; set; }
 
         public virtual void ApplyServices(IServiceCollection builder)
         {

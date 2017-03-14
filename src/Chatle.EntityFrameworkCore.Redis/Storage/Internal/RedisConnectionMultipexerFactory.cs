@@ -15,9 +15,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 
 		public virtual ConnectionMultiplexer GetOrCreate([NotNull] IRedisConnection connection)
 		{
-			var configurationOptions = ConfigurationOptions.Parse(connection.ConnectionString);
-
-			configurationOptions.AllowAdmin = true; // require Admin access for Server commands
+            var configurationOptions = connection.ConnectionOptions;
+            configurationOptions.AllowAdmin = true; // require Admin access for Server commands
 
 			var connectionMultiplexerKey = configurationOptions.ToString();
 

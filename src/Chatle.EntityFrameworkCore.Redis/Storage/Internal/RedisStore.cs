@@ -83,7 +83,8 @@ namespace Microsoft.EntityFrameworkCore.Storage.Internal
 		public virtual IServer GetUnderlyingServer()
 		{
 			return ConnectionMultiplexer
-				.GetServer(((RedisConnection)Connection).HostnPort);
+				.GetServer(((RedisConnection)Connection).ConnectionOptions.EndPoints.First());
+
 		}
 
 		private ConnectionMultiplexer ConnectionMultiplexer
